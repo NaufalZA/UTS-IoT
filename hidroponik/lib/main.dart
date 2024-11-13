@@ -1,4 +1,3 @@
-// lib/main.dart
 import 'package:flutter/material.dart';
 import 'api_service.dart';
 
@@ -28,7 +27,8 @@ class SuhuPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Data Suhu Harian", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+        title: Text("Data Suhu Harian",
+            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
       ),
       body: FutureBuilder<Map<String, dynamic>>(
         future: apiService.fetchData(),
@@ -42,22 +42,32 @@ class SuhuPage extends StatelessWidget {
           } else {
             final data = snapshot.data!;
             return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
               child: ListView(
                 children: [
-                  _buildStatCard("Suhu Maksimum", "${data['suhumax']} °C", Colors.redAccent),
-                  _buildStatCard("Suhu Minimum", "${data['suhumin']} °C", Colors.blueAccent),
-                  _buildStatCard("Rata-rata Suhu", "${data['suhurata']} °C", Colors.orangeAccent),
+                  _buildStatCard("Suhu Maksimum", "${data['suhumax']} °C",
+                      Colors.redAccent),
+                  _buildStatCard("Suhu Minimum", "${data['suhumin']} °C",
+                      Colors.blueAccent),
+                  _buildStatCard("Rata-rata Suhu", "${data['suhurata']} °C",
+                      Colors.orangeAccent),
                   SizedBox(height: 20),
                   Text(
                     "Data Suhu & Kelembaban Tertinggi",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.indigo),
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.indigo),
                   ),
                   _buildDataList(data['nilai_suhu_max_humid_max']),
                   SizedBox(height: 20),
                   Text(
                     "Bulan-Tahun Data",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.indigo),
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.indigo),
                   ),
                   _buildMonthYearList(data['month_year_max']),
                 ],
@@ -90,12 +100,16 @@ class SuhuPage extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.grey[800]),
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.grey[800]),
                 ),
                 SizedBox(height: 4),
                 Text(
                   value,
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: color),
+                  style: TextStyle(
+                      fontSize: 22, fontWeight: FontWeight.bold, color: color),
                 ),
               ],
             ),
@@ -109,7 +123,8 @@ class SuhuPage extends StatelessWidget {
     return Column(
       children: dataList.map((item) {
         return Card(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
           elevation: 3,
           margin: const EdgeInsets.symmetric(vertical: 4),
           child: ListTile(

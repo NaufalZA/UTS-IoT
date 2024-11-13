@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  final String apiUrl = 'http://10.0.2.2/API/rataratahariterakhir.php';// Ganti dengan URL API Anda
+  final String apiUrl = 'http://10.0.2.2/API/rataratahariterakhir.php';
 
   Future<Map<String, dynamic>> fetchData() async {
     final response = await http.get(Uri.parse(apiUrl));
