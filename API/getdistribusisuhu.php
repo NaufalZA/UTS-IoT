@@ -7,7 +7,7 @@ if( !$con){
     return;
 }
 
-$query = "SELECT suhu FROM `tb_dht` GROUP BY suhu ORDER BY suhu DESC LIMIT 0,3";
+$query = "SELECT suhu FROM `sensor_168` GROUP BY suhu ORDER BY suhu DESC LIMIT 0,3";
 $result = mysqli_query($con, $query);
 
 $finaldata = array();
@@ -21,7 +21,7 @@ if( mysqli_num_rows($result) > 0){
         // echo 'nilai max: ' . $nilaimax . "<br>";
         
         // query yang kedua
-        $query2 = "SELECT ts FROM tb_dht WHERE suhu = $nilaimax";
+        $query2 = "SELECT ts FROM sensor_168 WHERE suhu = $nilaimax";
         $result2 = mysqli_query($con, $query2);
         
         $arrTgl = array();

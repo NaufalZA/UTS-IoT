@@ -12,7 +12,7 @@ $query = "SELECT ROUND(MIN(suhu),2) AS suhu_max,
     ROUND(AVG(suhu), 2) AS suhu_rata, 
     ROUND(MIN(humid),2) AS humid_max, 
     ROUND(MAX(humid),2) AS humid_min, 
-    ROUND(AVG(humid),2) AS humid_rata FROM tb_dht";
+    ROUND(AVG(humid),2) AS humid_rata FROM sensor_168";
 $result = mysqli_query($con, $query);
 
 if( mysqli_num_rows($result) > 0){

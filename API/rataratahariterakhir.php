@@ -14,7 +14,7 @@ $query = "SELECT
     ROUND(AVG(ratahumid), 2) AS rataratahumid
 FROM
 	(SELECT ROUND(AVG(suhu),2) AS ratasuhu, ROUND(AVG(humid),2) AS ratahumid, COUNT(*) AS banyakdata 
-     FROM tb_dht GROUP BY date(ts) ORDER BY ts DESC LIMIT 0,$banyakhari) A";
+     FROM sensor_168 GROUP BY date(ts) ORDER BY ts DESC LIMIT 0,$banyakhari) A";
 $result = mysqli_query($con, $query);
 
 if( mysqli_num_rows($result) > 0){
